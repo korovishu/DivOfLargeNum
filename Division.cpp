@@ -1,5 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
+bool equal(string s1, string s2)
+{
+    int n1 = s1.length(), n2 = s2.length();
+    if(n1!=n2) return false;
+    for(int i=0; i<n1; i++)
+    {
+        if((s1[i]-'0')!=(s2[i]-'0')) return false;
+    }
+    return true;
+}
 bool small(string s1, string s2)
 {
     int n1=s1.length(); int n2=s2.length();
@@ -89,7 +99,7 @@ int main() {
     q='0';
     cin >> s1 >> s2;
     int n1 = s1.length(), n2 = s2.length();
-    while(small(s2, s1))
+    while(small(s2, s1) || equal(s1, s2))
     {
         string s = s2;
         for(int i=0; i<n1-n2; i++)
@@ -99,13 +109,15 @@ int main() {
         if(small(s1, s)) 
         {
             s.pop_back();
-            long long t = pow(10, n1-n2-1);
-            q = q + to_string(t);
+            int t = pow(10, n1-n2-1);
+            string qs = to_string(t);
+            q = add(q, qs);
         }
         else 
         {
-            long long t = pow(10, n1-n2);
-            q = q + to_string(t);
+            int t = pow(10, n1-n2);
+            string qs = to_string(t);
+            q = add(q, qs);
         }
         s1 = diff(s1, s);
     }
