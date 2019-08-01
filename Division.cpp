@@ -65,6 +65,10 @@ string diff(string s1, string s2)
               
         s3.push_back(sub + '0'); 
     } 
+    for(int i=s3.length()-1; s3[i]=='0'; i--)
+    {
+        s3.pop_back();
+    }
     reverse(s3.begin(), s3.end());
     return s3;
 }
@@ -121,6 +125,7 @@ int main() {
         }
         s1 = diff(s1, s);
     }
+    if(s1 == "") s1 = '0';
     r = s1;
     cout << q << " " << r;
 }
