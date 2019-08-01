@@ -102,10 +102,11 @@ int main() {
     string s1, s2, q, r;
     q='0';
     cin >> s1 >> s2;
-    int n1 = s1.length(), n2 = s2.length();
+    int n2 = s2.length();
     while(small(s2, s1) || equal(s1, s2))
     {
         string s = s2;
+        int n1 = s1.length();
         for(int i=0; i<n1-n2; i++)
         {
             s = s + '0';
@@ -113,13 +114,13 @@ int main() {
         if(small(s1, s)) 
         {
             s.pop_back();
-            int t = pow(10, n1-n2-1);
+            long long t = pow(10, n1-n2-1);
             string qs = to_string(t);
             q = add(q, qs);
         }
         else 
         {
-            int t = pow(10, n1-n2);
+            long long t = pow(10, n1-n2);
             string qs = to_string(t);
             q = add(q, qs);
         }
