@@ -19,7 +19,7 @@ bool small(string s1, string s2)
     {
         for(int i=0; i<n1; i++)
         {
-            if((s1[i]-'0')>(s2[i]-'0')) return false;
+            if((s1[i]-'0')>=(s2[i]-'0')) return false;
             if((s1[i]-'0')<(s2[i]-'0')) return true;
         }
     }
