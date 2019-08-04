@@ -66,15 +66,19 @@ string diff(string s1, string s2)
               
         s3.push_back(sub + '0'); 
     } 
-    if(s3.length()!=1){
-    for(int i=s3.length()-1; s3[i]=='0'; i--)
+    if(s3.length()!=1)
     {
-        s3.pop_back();
-    }
-    }
+        for(int i=s3.length()-1; i>=1; i--)
+        {
+            if(s3[i]=='0') s3.pop_back();
+            else break;
+        }
+    }    
     reverse(s3.begin(), s3.end());
     return s3;
 }
+
+
 string add(string s1, string s2)
 {
     string s3;
@@ -128,7 +132,9 @@ int main() {
             q = add(q, qs);
         }
         s1 = diff(s1, s);
+        
     }
+    
     r = s1;
     cout << q << " " << r;
 }
